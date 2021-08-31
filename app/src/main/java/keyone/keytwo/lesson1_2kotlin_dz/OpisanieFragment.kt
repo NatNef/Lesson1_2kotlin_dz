@@ -1,50 +1,39 @@
-package keyone.keytwo.lesson1_2kotlin_dz;
+package keyone.keytwo.lesson1_2kotlin_dz
 
-import android.content.res.TypedArray;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import androidx.fragment.app.Fragment
 
-import androidx.fragment.app.Fragment;
-
-import keyone.keytwo.zametki.R;
-
-public class OpisanieFragment extends Fragment {
-
-    public static String ARG_MENU = "menu";
-    private Menu menu;
-
-
-    public static OpisanieFragment newInstance(Menu menu) {
-        OpisanieFragment fragment = new OpisanieFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(ARG_MENU, menu);
-        fragment.setArguments(bundle);
-        return fragment;
+class OpisanieFragment : Fragment() {
+    private var menu: Menu? = null
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view: View = inflater.inflate(R.layout.fragment_opisanie, container, false)
+        val imageView: ImageView = view.findViewById<ImageView>(R.id.imageView)
+        val textView: TextView = view.findViewById<TextView>(R.id.textView)
+        textView.setText(menu!!.name)
+        val typedArray: TypedArray = resources.obtainTypedArray(R.array.opisanie_imgs)
+        imageView.setImageResource(typedArray.getResourceId(menu!!.imageIndex, -1))
+        return view
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_opisanie, container, false);
-        ImageView imageView = view.findViewById(R.id.imageView);
-        TextView textView = view.findViewById(R.id.textView);
-        textView.setText(this.menu.getName());
-
-        TypedArray typedArray = getResources().obtainTypedArray(R.array.opisanie_imgs);
-        imageView.setImageResource(typedArray.getResourceId(this.menu.getImageIndex(), -1));
-        return view;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            this.menu = getArguments().getParcelable(ARG_MENU);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (arguments != null) {
+            menu = arguments!!.getParcelable(ARG_MENU)
         }
+    }
 
-
+    companion object {
+        var ARG_MENU = "menu"
+        @JvmStatic
+        fun newInstance(menu: Menu?): OpisanieFragment {
+            val fragment = OpisanieFragment()
+            val bundle = Bundle()
+            bundle.putParcelable(ARG_MENU, menu)
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 }
