@@ -1,6 +1,8 @@
 package keyone.keytwo.lesson1_2kotlin_dz
 
 import android.content.res.Configuration
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     protected override fun onCreate(savedInstanceState: Bundle?) {

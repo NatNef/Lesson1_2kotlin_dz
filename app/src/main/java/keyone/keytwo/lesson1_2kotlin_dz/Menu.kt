@@ -32,7 +32,7 @@ class Menu : Parcelable {
     }
 
     companion object {
-        val CREATOR: Creator<Menu> = object : Creator<Menu?> {
+        @JvmField val CREATOR: Creator<Menu?> = object : Creator<Menu?> {
             override fun createFromParcel(`in`: Parcel): Menu? {
                 return Menu(`in`)
             }

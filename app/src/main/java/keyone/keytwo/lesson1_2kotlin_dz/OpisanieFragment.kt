@@ -1,5 +1,12 @@
 package keyone.keytwo.lesson1_2kotlin_dz
 
+import android.content.res.TypedArray
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class OpisanieFragment : Fragment() {
@@ -21,7 +28,7 @@ class OpisanieFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
-            menu = arguments!!.getParcelable(ARG_MENU)
+            menu = requireArguments().getParcelable(ARG_MENU)
         }
     }
 
