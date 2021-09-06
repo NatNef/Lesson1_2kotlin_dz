@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lesson1_2kotlin_dz</string>
+    <string name="text_button">О приложении</string>
 </resources>
