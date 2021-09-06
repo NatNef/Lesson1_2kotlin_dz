@@ -52,8 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     //    // кнопка
     val button = findViewById<Button>(R.id.button_p)
-    button.setOnClickListener(
-    private object : View.OnClickListener {
+    button.setOnClickListener(object  : View.OnClickListener {
         override fun onClick(v: View?) {
             TODO("Not yet implemented")
         }
