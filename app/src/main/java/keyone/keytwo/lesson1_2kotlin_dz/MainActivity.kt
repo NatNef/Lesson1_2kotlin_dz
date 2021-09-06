@@ -52,11 +52,13 @@ class MainActivity : AppCompatActivity() {
 
     //    // кнопка
     val button = findViewById<Button>(R.id.button_p)
-    button.setOnClickListener(object  : View.OnClickListener {
+    button.setOnClickListener(
+    object : View.OnClickListener {
         override fun onClick(v: View?) {
             TODO("Not yet implemented")
         }
     })
+
 
     //цилы
     val daysOfWeek = listOf("Sunday", "Monday", "Tuesday") {
@@ -72,7 +74,8 @@ class MainActivity : AppCompatActivity() {
         //ничего
         fun test(): Nothing Int{
         while (true) {
-        }
+           }
+
 
     }
 
